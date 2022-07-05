@@ -15,19 +15,21 @@ function criaQuadro() {
     pixelBoard.appendChild(criaDiv);
     criaDiv.className = 'pixel';
   }
+  pixelBoard.style.width = '225px'
+  pixelBoard.style.height = '225px'
 }
 criaQuadro();
 
 let pixels = document.querySelectorAll('.pixel');
-function quebraLinha() {
-  for (let i = 0; i < pixels.length; i += 1) {
-    if (i === 5 || i === 10 || i === 15 || i === 20) {
-      let criaBr = document.createElement('br');
-      pixelBoard.insertBefore(criaBr, pixels[i]);
-    }
-  }
-};
-quebraLinha();
+// function quebraLinha() {
+//   for (let i = 0; i < pixels.length; i += 1) {
+//     if (i === 5 || i === 10 || i === 15 || i === 20) {
+//       let criaBr = document.createElement('br');
+//       pixelBoard.insertBefore(criaBr, pixels[i]);
+//     }
+//   }
+// };
+// quebraLinha();
 
 let corInicial = document.getElementsByTagName('button')[0];
 corInicial.classList.add('selected');
@@ -66,5 +68,18 @@ for (let index = 0; index < pixels.length; index += 1) {
   })
 }
 
- 
+let body = document.getElementsByTagName('body')[0];
+let addBtnLimpar = document.createElement('button');
+let text = document.createTextNode('Limpar');
+addBtnLimpar.appendChild(text)
+addBtnLimpar.id = 'clear-board';
+body.insertBefore(addBtnLimpar, pixelBoard);
+
+let buttonClear = document.querySelector('#clear-board');
+for (let count = 0; count < pixels.length; count += 1) {
+  buttonClear.addEventListener('click', function() {
+    pixels[count].style.backgroundColor = 'white';
+  })
+ }
+
 
