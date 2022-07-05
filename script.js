@@ -29,6 +29,9 @@ function quebraLinha() {
 };
 quebraLinha();
 
+let corInicial = document.getElementsByTagName('button')[0];
+corInicial.classList.add('selected');
+
 function addRemoveSelected (elemento, cor) {
   for(let index = 0; index < buttons.length; index += 1) {
     buttons[index].classList.remove('selected');
@@ -53,4 +56,15 @@ buttons[3].addEventListener('click', function (event) {
   addRemoveSelected(event.target, purple)
   console.log(event)
 })
+
+
+for (let index = 0; index < pixels.length; index += 1) {
+  // let corPixel = pixels[index].style.backgroundColor = 'white';
+  pixels[index].addEventListener('click', function(event) {
+    let selectedCor = document.querySelector('#color-palette .selected').style.backgroundColor;
+    event.target.style.backgroundColor = selectedCor;
+  })
+}
+
+ 
 
