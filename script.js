@@ -29,7 +29,28 @@ function quebraLinha() {
 };
 quebraLinha();
 
-// let corSelecionada = ''
-// buttons[0].addEventListener('click', function () {
-//  corSelecionada =
-// })
+function addRemoveSelected (elemento, cor) {
+  for(let index = 0; index < buttons.length; index += 1) {
+    buttons[index].classList.remove('selected');
+  }
+  corSelecionada = cor;
+  elemento.classList.add('selected')
+}
+
+buttons[0].addEventListener('click', function (event) {
+  addRemoveSelected(event.target, black)
+})
+
+buttons[1].addEventListener('click', function (event) {
+  addRemoveSelected(event.target, blue);
+})
+
+buttons[2].addEventListener('click', function (event) {
+  addRemoveSelected(event.target, green)
+})
+
+buttons[3].addEventListener('click', function (event) {
+  addRemoveSelected(event.target, purple)
+  console.log(event)
+})
+
